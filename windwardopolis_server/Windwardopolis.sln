@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windwardopolis", "server\Windwardopolis.csproj", "{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapBuilder", "MapBuilder\MapBuilder.csproj", "{0F2208DE-60F6-4364-A1CF-FE635E906126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindwardopolisLibrary", "WindwardopolisLibrary\WindwardopolisLibrary.csproj", "{5CBDC067-2987-484C-BABA-1825416570CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Debug|x86.ActiveCfg = Debug|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Debug|x86.Build.0 = Debug|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Release|Any CPU.ActiveCfg = Release|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Release|x86.ActiveCfg = Release|x86
+		{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}.Release|x86.Build.0 = Release|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Debug|x86.ActiveCfg = Debug|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Debug|x86.Build.0 = Debug|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Release|Any CPU.ActiveCfg = Release|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Release|Mixed Platforms.Build.0 = Release|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Release|x86.ActiveCfg = Release|x86
+		{0F2208DE-60F6-4364-A1CF-FE635E906126}.Release|x86.Build.0 = Release|x86
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5CBDC067-2987-484C-BABA-1825416570CB}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C87E115-CD10-4E8D-B0D7-B56CB2656DE4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Windwardopolis</RootNamespace>
+    <AssemblyName>Windwardopolis</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DEBUG_MODE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Avatars.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Avatars.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientTimeout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientTimeout.Designer.cs">
+      <DependentUpon>ClientTimeout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebugWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugWindow.Designer.cs">
+      <DependentUpon>DebugWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FifoByteBuffer.cs" />
+    <Compile Include="Framework.cs" />
+    <Compile Include="GameSpeed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameSpeed.Designer.cs">
+      <DependentUpon>GameSpeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="game_ai\PlayerAI.cs" />
+    <Compile Include="game_ai\SimpleAStar.cs" />
+    <Compile Include="game_engine\Engine.cs" />
+    <Compile Include="IEngineCallback.cs" />
+    <Compile Include="IUserDisplay.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemoteAI.cs" />
+    <Compile Include="PlayerScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerScore.Designer.cs">
+      <DependentUpon>PlayerScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlayerStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlayerStatus.Designer.cs">
+      <DependentUpon>PlayerStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sprites.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sprites.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Status.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Status.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StatusMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StatusMessages.Designer.cs">
+      <DependentUpon>StatusMessages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TcpServer.cs" />
+    <EmbeddedResource Include="Avatars.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Avatars.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientTimeout.resx">
+      <DependentUpon>ClientTimeout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebugWindow.resx">
+      <DependentUpon>DebugWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameSpeed.resx">
+      <DependentUpon>GameSpeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayerScore.resx">
+      <DependentUpon>PlayerScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayerStatus.resx">
+      <DependentUpon>PlayerStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Sprites.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sprites.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Status.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Status.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StatusMessages.resx">
+      <DependentUpon>StatusMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Windwardopolis.exe.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\atom.ico" />
+    <None Include="Images\media_pause.png" />
+    <None Include="Images\media_play.png" />
+    <None Include="Images\media_stop_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\bug_yellow.png" />
+    <Content Include="Images\Car_01.png" />
+    <Content Include="Images\Car_02.png" />
+    <Content Include="Images\Car_03.png" />
+    <Content Include="Images\Car_04.png" />
+    <Content Include="Images\Car_05.png" />
+    <Content Include="Images\Car_06.png" />
+    <Content Include="Images\Car_07.png" />
+    <Content Include="Images\Car_08.png" />
+    <Content Include="Images\Car_09.png" />
+    <Content Include="Images\Car_10.png" />
+    <Content Include="Images\Car_11.png" />
+    <Content Include="Images\Car_12.png" />
+    <Content Include="Images\debug_reset.png" />
+    <Content Include="Images\debug_run.png" />
+    <Content Include="Images\debug_view.ico" />
+    <Content Include="Images\debug_view.png" />
+    <Content Include="Images\flash.png" />
+    <Content Include="Images\gauge.png" />
+    <Content Include="Images\table_sql.ico" />
+    <Content Include="Images\table_sql.png" />
+    <Content Include="Images\view.png" />
+    <Content Include="Images\window_application.ico" />
+    <Content Include="Images\window_application.png" />
+    <Content Include="map1.xml" />
+    <Content Include="map2.xml" />
+    <Content Include="map3.xml" />
+    <Content Include="map4.xml" />
+    <EmbeddedResource Include="Resources\Crowding Cheering Charge-SoundBible.com-284606164.wav" />
+    <EmbeddedResource Include="Resources\Town_Traffic_01.wav" />
+    <Content Include="Images\client_network.png" />
+    <Content Include="Images\loudspeaker.png" />
+    <Content Include="Images\loudspeaker_preferences.png" />
+    <Content Include="Images\stopwatch.png" />
+    <Content Include="Images\user1_add.png" />
+    <Content Include="Images\user1_earth.png" />
+    <Content Include="Images\warning_grey.png" />
+    <None Include="Images\warning.png" />
+    <None Include="Images\star_green.png" />
+    <None Include="Images\star_red.png" />
+    <None Include="Images\avatar1.png" />
+    <Content Include="Images\avatar2.png" />
+    <Content Include="Images\avatar3.png" />
+    <Content Include="Images\avatar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindwardopolisLibrary\WindwardopolisLibrary.csproj">
+      <Project>{5CBDC067-2987-484C-BABA-1825416570CB}</Project>
+      <Name>WindwardopolisLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)$(TargetFileName).config" "$(TargetDir)" /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
