@@ -1,6 +1,8 @@
 package net.windward.Windwardopolis.AI;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import net.windward.Windwardopolis.api.Map;
 import net.windward.Windwardopolis.api.MapSquare;
@@ -25,6 +27,10 @@ public class SimpleAStar {
 
     private static final int DEAD_END = 10000;
 
+    public static int last_cost;
+
+    private static HashMap<Pair<Point, Point>, Pair<ArrayList<Point>, Integer> > paths = new HashMap<Pair<Point, Point>, Pair<ArrayList<Point>, Integer>>();
+
     private static final Point ptOffMap = new Point(-1, -1);
 
     /**
@@ -44,139 +50,96 @@ public class SimpleAStar {
             return new java.util.ArrayList<Point>(java.util.Arrays.asList(new Point[]{start}));
         }
 
+
+
         // nodes are points we have walked to
-        java.util.HashMap<Point, TrailPoint> nodes = new java.util.HashMap<Point, TrailPoint>();
-        // points we have in a TrailPoint, but not yet evaluated.
-        java.util.ArrayList<TrailPoint> notEvaluated = new java.util.ArrayList<TrailPoint>();
+        java.util.HashMap<Point, TrailPoint> seen_nodes = new java.util.HashMap<Point, TrailPoint>();
+
 
         TrailPoint tpOn = new TrailPoint(start, end, 0);
-        while (true) {
-            nodes.put(tpOn.getMapTile(), tpOn);
 
-            // get the neighbors
-            TrailPoint tpClosest = null;
+        java.util.ArrayList<TrailPoint> queue = new ArrayList<TrailPoint>();
+
+        queue.add(tpOn);
+        seen_nodes.put(start, tpOn);
+
+        java.util.HashMap<TrailPoint, TrailPoint> previous = new HashMap<TrailPoint, TrailPoint>();
+
+        if(paths.containsKey(new Pair<Point, Point>(start, end))){
+            last_cost = paths.get(new Pair<Point, Point>(start, end)).getRight();
+            return paths.get(new Pair<Point, Point>(start, end)).getLeft();
+        }
+
+        while(true) {
+
+            //otherwise calculate it
+            TrailPoint trail_temp = queue.remove(0);
+
             for (Point ptOffset : offsets) {
-                Point pt = new Point(tpOn.getMapTile().x + ptOffset.x, tpOn.getMapTile().y + ptOffset.y);
+                Point pt = new Point(trail_temp.getMapTile().x + ptOffset.x, trail_temp.getMapTile().y + ptOffset.y);
                 MapSquare square = map.SquareOrDefault(pt);
                 // off the map or not a road/bus stop
                 if ((square == null) || (!square.getIsDriveable())) {
                     continue;
                 }
 
-                // already evaluated - add it in
-                if (nodes.containsKey(pt)) {
-                    TrailPoint tpAlreadyEvaluated = nodes.get(pt);
-                    tpAlreadyEvaluated.setCost(Math.min(tpAlreadyEvaluated.getCost(), tpOn.getCost() + 1));
-                    tpOn.getNeighbors().add(tpAlreadyEvaluated);
-                    continue;
-                }
+                if (!seen_nodes.containsKey(pt)) {
 
-                // add this one in
-                TrailPoint tpNeighbor = new TrailPoint(pt, end, tpOn.getCost() + 1);
-                tpOn.getNeighbors().add(tpNeighbor);
+                    TrailPoint tp= new TrailPoint(pt, end, trail_temp.getCost()+1);
+                    queue.add(tp);
+                    seen_nodes.put(pt, tp);
+                    //continue;
+                    previous.put(tp, trail_temp);
+                    if (pt.equals(end)) {
+                        last_cost = tp.getCost();
+                        //construct path here
+                        ArrayList<Point> path = new ArrayList<Point>();
+                        TrailPoint prev = previous.get(tp);
+                        path.add(tp.getMapTile());
+                        int cost = 0;
 
-                // may already be in notEvaluated. If so remove it as this is a more recent cost estimate
-
-                int indTp = -1;
-
-                for (int i = 0; i < notEvaluated.size(); i++) {
-                    TrailPoint tp = notEvaluated.get(i);
-                    if (tp.getMapTile() == tpNeighbor.getMapTile()) {
-                        indTp = i;
-                        break;
-                    }
-
-                }
-
-                if (indTp != -1)
-                    notEvaluated.remove(indTp);
-
-
-                // we only assign to tpClosest if it is closer to the destination. If it's further away, then we
-                // use notEvaluated below to find the one closest to the dest that we have not walked yet.
-                if (tpClosest == null) {
-                    if (tpNeighbor.getDistance() < tpOn.getDistance())
-                    // new neighbor is closer - work from this next.
-                    {
-                        tpClosest = tpNeighbor;
-                    } else
-                    // this is further away - put in the list to try if a better route is not found
-                    {
-                        notEvaluated.add(tpNeighbor);
-                    }
-                } else {
-                    if (tpClosest.getDistance() <= tpNeighbor.getDistance())
-                    // this is further away - put in the list to try if a better route is not found
-                    {
-                        notEvaluated.add(tpNeighbor);
-                    } else {
-                        // this is closer than tpOn and another neighbor - use it next.
-                        notEvaluated.add(tpClosest);
-                        tpClosest = tpNeighbor;
+                        do {
+                            cost++;
+                            path.add(0, prev.getMapTile());
+                            paths.put(new Pair<Point, Point>(prev.getMapTile(),end), new Pair((ArrayList<Point>)path.clone(), cost));
+                            //System.out.println(seen_nodes.size());
+                            prev = previous.get(prev);
+                        } while ((!prev.getMapTile().equals(start)));
+                        last_cost = cost;
+                        return path;
                     }
                 }
+
             }
 
-            // re-calc based on neighbors
-            tpOn.RecalculateDistance(ptOffMap, map.getWidth());
+        }
+    }
 
-            // if no closest, then get from notEvaluated. This is where it guarantees that we are getting the shortest
-            // route - we go in here if the above did not move a step closer. This may not either as the best choice
-            // may be the neighbor we didn't go with above - but we drop into this to find the closest based on what we know.
-            if (tpClosest == null) {
-                if (notEvaluated.isEmpty()) {
-                    TRAP.trap();
-                    break;
-                }
-                // We need the closest one as that's how we find the shortest path.
-                tpClosest = notEvaluated.get(0);
-                int index = 0;
-                for (int ind = 1; ind < notEvaluated.size(); ind++) {
-                    TrailPoint tpNotEval = notEvaluated.get(ind);
-                    if (tpNotEval.getDistance() >= tpClosest.getDistance()) {
-                        continue;
-                    }
-                    tpClosest = tpNotEval;
-                    index = ind;
-                }
-                notEvaluated.remove(index);
-            }
+    private static class Pair<L,R> {
 
-            // if we're at end - we're done!
-            if (tpClosest.getMapTile() == end) {
-                tpClosest.getNeighbors().add(tpOn);
-                nodes.put(tpClosest.getMapTile(), tpClosest);
-                break;
-            }
+        private final L left;
+        private final R right;
 
-            // try this one
-            tpOn = tpClosest;
+        public Pair(L left, R right) {
+            this.left = left;
+            this.right = right;
         }
 
-        // Create the return path - from end back to beginning.
-        java.util.ArrayList<Point> path = new java.util.ArrayList<Point>();
-        tpOn = nodes.get(end);
-        path.add(tpOn.getMapTile());
-        while (tpOn.getMapTile() != start) {
-            java.util.ArrayList<TrailPoint> neighbors = tpOn.getNeighbors();
-            int cost = tpOn.getCost();
+        public L getLeft() { return left; }
+        public R getRight() { return right; }
 
-            tpOn = tpOn.getNeighbors().get(0);
-            for (int ind = 1; ind < neighbors.size(); ind++) {
-                if (neighbors.get(ind).getCost() < tpOn.getCost()) {
-                    tpOn = neighbors.get(ind);
-                }
-            }
+        @Override
+        public int hashCode() { return left.hashCode() ^ right.hashCode(); }
 
-            // we didn't get to the start.
-            if (tpOn.getCost() >= cost) {
-                TRAP.trap();
-                return path;
-            }
-            path.add(0, tpOn.getMapTile());
+        @Override
+        public boolean equals(Object o) {
+            if (o == null) return false;
+            if (!(o instanceof Pair)) return false;
+            Pair pairo = (Pair) o;
+            return this.left.equals(pairo.getLeft()) &&
+                    this.right.equals(pairo.getRight());
         }
 
-        return path;
     }
 
     private static class TrailPoint {

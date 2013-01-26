@@ -18,6 +18,9 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * The sample C# AI. Start with this project but write your own code as this is a very simplistic implementation of the AI.
@@ -252,15 +255,63 @@ public class MyPlayerBrain implements net.windward.Windwardopolis.AI.IPlayerAI {
         return path;
     }
 
-    private static java.util.ArrayList<Passenger> AllPickups(Player me, Iterable<Passenger> passengers) {
-        java.util.ArrayList<Passenger> pickup = new java.util.ArrayList<Passenger>();
+    private java.util.ArrayList<Passenger> AllPickups(Player me, Iterable<Passenger> passengers) {
+        java.util.ArrayList<Passenger> pickUpOrder = new java.util.ArrayList<Passenger>();
 
         for (Passenger psngr : passengers) {
-            if ((!me.getPassengersDelivered().contains(psngr)) && (psngr != me.getLimo().getPassenger()) && (psngr.getCar() == null) && (psngr.getLobby() != null) && (psngr.getDestination() != null))
-                pickup.add(psngr);
+            if ((!me.getPassengersDelivered().contains(psngr)) && (psngr != me.getLimo().getPassenger()) && (psngr.getCar() == null) && (psngr.getLobby() != null) && (psngr.getDestination() != null)) {
+                pickUpOrder.add(psngr);
+            }
         }
 
+        Collections.sort(pickUpOrder, new PassengerComparator(me));
+
         //add sort by random so no loops for can't pickup
-        return pickup;
+        return pickUpOrder;
+    }
+
+    private class PassengerComparator implements Comparator<Passenger> {
+        Player me;
+
+        PassengerComparator(Player me) {
+            this.me = me;
+        }
+
+        public int compare(Passenger p1, Passenger p2) {
+            int p1Cost;
+            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), me.getLimo().getMapPosition(), p1.getLobby().getBusStop().getLocation());
+            p1Cost = SimpleAStar.last_cost;
+            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), p1.getLobby().getBusStop().getLocation(), p1.getDestination().getBusStop().getLocation());
+            p1Cost += SimpleAStar.last_cost;
+
+            int p2Cost;
+            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), me.getLimo().getMapPosition(), p2.getLobby().getBusStop().getLocation());
+            p2Cost = SimpleAStar.last_cost;
+            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), p2.getLobby().getBusStop().getLocation(), p2.getDestination().getBusStop().getLocation());
+            p2Cost += SimpleAStar.last_cost;
+
+            if (p1Cost / p1.getPointsDelivered() > p2Cost / p2.getPointsDelivered()) {
+                return -1;
+            }
+            else if (p1Cost / p1.getPointsDelivered() < p2Cost / p2.getPointsDelivered()) {
+                return 1;
+            }
+            else {
+                int p1DestPassSize = p1.getDestination().getPassengers().size();
+                int p2DestPassSize = p2.getDestination().getPassengers().size();
+
+                if (p1DestPassSize > p2DestPassSize) {
+                    return -1;
+                }
+                else if (p1DestPassSize < p2DestPassSize) {
+                    return 1;
+                }
+                else
+                {
+                    int randomNum = rand.nextInt(2);
+                    return (randomNum == 0) ? -1 : 1;
+                }
+            }
+        }
     }
 }
