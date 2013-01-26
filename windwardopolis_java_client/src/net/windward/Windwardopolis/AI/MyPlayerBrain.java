@@ -27,7 +27,7 @@ public class MyPlayerBrain implements net.windward.Windwardopolis.AI.IPlayerAI {
     private static String NAME = "MODULUS";
 
     // bugbug - put your school name here. Must be 11 letters or less (ie use MIT, not Massachussets Institute of Technology).
-    public static String SCHOOL = "Colorado School of Mines";
+    public static String SCHOOL = "CSM";
 
     /**
      * The name of the player.
