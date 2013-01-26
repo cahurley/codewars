@@ -78,10 +78,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyPlayerBrain.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MyPlayerBrain.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/MyPlayerBrain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="38" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.63255817">
+            <state line="227" column="80" selection-start="8090" selection-end="8090" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapSquare.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/MapSquare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="203" column="102" selection-start="3991" selection-end="3991" vertical-scroll-proportion="0.30699775">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Company.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Company.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="42" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,10 +145,10 @@
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/TcpClient.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Limo.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Passenger.java" />
-        <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/api/MapSquare.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/Framework.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/MyPlayerBrain.java" />
+        <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/api/MapSquare.java" />
       </list>
     </option>
   </component>
@@ -442,6 +460,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39848197" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -460,7 +479,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34588563" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32922202" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -525,18 +543,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/PlayerAIBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/MapSquare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="226" column="0" selection-start="4516" selection-end="4516" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/TcpClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="119" column="0" selection-start="3106" selection-end="3106" vertical-scroll-proportion="0.0" />
@@ -550,11 +556,6 @@
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="15" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Limo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="133" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/dom4j-1.6.1.jar!/org/dom4j/Element.class">
@@ -603,6 +604,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Limo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="26" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/PlayerAIBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
@@ -610,9 +618,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="42" selection-start="855" selection-end="855" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/MyPlayerBrain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="38" selection-start="1091" selection-end="1091" vertical-scroll-proportion="0.63255817">
+        <state line="227" column="80" selection-start="8090" selection-end="8090" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/MapSquare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="203" column="102" selection-start="3991" selection-end="3991" vertical-scroll-proportion="0.30699775">
           <folding />
         </state>
       </provider>

@@ -201,7 +201,7 @@ public class MapSquare
    	public static final int STOP_EAST = 0x02;
    	public static final int STOP_SOUTH = 0x04;
    	public static final int STOP_WEST = 0x08;
-   	private static final String [] STOPNames = {"NORTH", "EAST", "SOUTH", "WEST"};
+    private static final String [] STOPNames = {"STOP_NORTH", "STOP_EAST", "STOP_SOUTH", "STOP_WEST"};
 
    	public static int parseSTOPs(String STOP) {
 
