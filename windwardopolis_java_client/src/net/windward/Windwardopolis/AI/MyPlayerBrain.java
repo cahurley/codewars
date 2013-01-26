@@ -24,10 +24,10 @@ import java.io.IOException;
  */
 public class MyPlayerBrain implements net.windward.Windwardopolis.AI.IPlayerAI {
     // bugbug - put your team name here.
-    private static String NAME = "James Gosling";
+    private static String NAME = "MODULUS";
 
     // bugbug - put your school name here. Must be 11 letters or less (ie use MIT, not Massachussets Institute of Technology).
-    public static String SCHOOL = "Windward U.";
+    public static String SCHOOL = "Colorado School of Mines";
 
     /**
      * The name of the player.
