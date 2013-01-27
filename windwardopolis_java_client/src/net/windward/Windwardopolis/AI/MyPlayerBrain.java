@@ -186,45 +186,63 @@ public class MyPlayerBrain implements net.windward.Windwardopolis.AI.IPlayerAI {
             // bugbug - we return if not us because the below code is only for when we need a new path or our limo hit a bus stop.
             // if you want to act on other players arriving at bus stops, you need to remove this. But make sure you use Me, not
             // plyrStatus for the Player you are updatiing (particularly to determine what tile to start your path from).
-            if (plyrStatus != getMe()) {
-                return;
-            }
-
             Point ptDest = null;
             java.util.ArrayList<Passenger> pickup = new java.util.ArrayList<Passenger>();
-            switch (status) {
-                case UPDATE:
-                    return;
-                case NO_PATH:
-                case PASSENGER_NO_ACTION:
-                    if (plyrStatus.getLimo().getPassenger() == null) {
+
+            if (plyrStatus != getMe()) {
+                switch (status) {
+                    case PASSENGER_PICKED_UP:
+                        if (plyrStatus.getLimo().getPassenger() == null){
+                            pickup = AllPickups(getMe(), passengers);
+                            ptDest = pickup.get(0).getLobby().getBusStop();
+                        }
+                        break;
+                    case PASSENGER_DELIVERED:
+                    case PASSENGER_ABANDONED:
+                        if (plyrStatus.getLimo().getPassenger() == null) {
+                            pickup = AllPickups(getMe(), passengers);
+                            ptDest = pickup.get(0).getLobby().getBusStop();
+                        }
+                        break;
+                    default:
+                        return;
+                }
+                return;
+            } else {
+                switch (status) {
+                    case UPDATE:
+                        return;
+                    case NO_PATH:
+                    case PASSENGER_NO_ACTION:
+                        if (plyrStatus.getLimo().getPassenger() == null) {
+                            pickup = AllPickups(plyrStatus, passengers);
+                            ptDest = pickup.get(0).getLobby().getBusStop();
+                        } else {
+                            ptDest = plyrStatus.getLimo().getPassenger().getDestination().getBusStop();
+                        }
+                        break;
+                    case PASSENGER_DELIVERED:
+                    case PASSENGER_ABANDONED:
                         pickup = AllPickups(plyrStatus, passengers);
                         ptDest = pickup.get(0).getLobby().getBusStop();
-                    } else {
-                        ptDest = plyrStatus.getLimo().getPassenger().getDestination().getBusStop();
-                    }
-                    break;
-                case PASSENGER_DELIVERED:
-                case PASSENGER_ABANDONED:
-                    pickup = AllPickups(plyrStatus, passengers);
-                    ptDest = pickup.get(0).getLobby().getBusStop();
-                    break;
-                case PASSENGER_REFUSED:
-                    //add in random so no refuse loop
-                    for (Company cpy : getCompanies()) {
-                        if (cpy != plyrStatus.getLimo().getPassenger().getDestination()) {
-                            ptDest = cpy.getBusStop();
-                            break;
+                        break;
+                    case PASSENGER_REFUSED:
+                        //add in random so no refuse loop
+                        for (Company cpy : getCompanies()) {
+                            if (cpy != plyrStatus.getLimo().getPassenger().getDestination()) {
+                                ptDest = cpy.getBusStop();
+                                break;
+                            }
                         }
-                    }
-                    break;
-                case PASSENGER_DELIVERED_AND_PICKED_UP:
-                case PASSENGER_PICKED_UP:
-                    pickup = AllPickups(plyrStatus, passengers);
-                    ptDest = plyrStatus.getLimo().getPassenger().getDestination().getBusStop();
-                    break;
-                default:
-                    throw new RuntimeException("unknown status");
+                        break;
+                    case PASSENGER_DELIVERED_AND_PICKED_UP:
+                    case PASSENGER_PICKED_UP:
+                        pickup = AllPickups(plyrStatus, passengers);
+                        ptDest = plyrStatus.getLimo().getPassenger().getDestination().getBusStop();
+                        break;
+                    default:
+                        throw new RuntimeException("unknown status");
+                }
             }
 
             // get the path from where we are to the dest.
@@ -278,25 +296,58 @@ public class MyPlayerBrain implements net.windward.Windwardopolis.AI.IPlayerAI {
         }
 
         public int compare(Passenger p1, Passenger p2) {
-            int p1Cost;
-            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), me.getLimo().getMapPosition(), p1.getLobby().getBusStop().getLocation());
-            p1Cost = SimpleAStar.last_cost;
-            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), p1.getLobby().getBusStop().getLocation(), p1.getDestination().getBusStop().getLocation());
-            p1Cost += SimpleAStar.last_cost;
+            try {
+                double p1Cost;
+                SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), me.getLimo().getMapPosition(), p1.getLobby().getBusStop());
+                p1Cost = SimpleAStar.last_cost * 0.7;
+                SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), p1.getLobby().getBusStop().getLocation(), p1.getDestination().getBusStop());
+                p1Cost += (SimpleAStar.last_cost * 0.3);
 
-            int p2Cost;
-            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), me.getLimo().getMapPosition(), p2.getLobby().getBusStop().getLocation());
-            p2Cost = SimpleAStar.last_cost;
-            SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), p2.getLobby().getBusStop().getLocation(), p2.getDestination().getBusStop().getLocation());
-            p2Cost += SimpleAStar.last_cost;
+                for (Passenger p : p1.getDestination().getPassengers())
+                {
+                    if (p1.getEnemies().contains(p))
+                    {
+                        p1Cost += 1000;
+                    }
+                }
 
-            if (p1Cost / p1.getPointsDelivered() > p2Cost / p2.getPointsDelivered()) {
-                return -1;
-            }
-            else if (p1Cost / p1.getPointsDelivered() < p2Cost / p2.getPointsDelivered()) {
-                return 1;
-            }
-            else {
+                double p2Cost;
+                SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), me.getLimo().getMapPosition(), p2.getLobby().getBusStop());
+                p2Cost = SimpleAStar.last_cost * 0.7;
+                SimpleAStar.CalculatePath(MyPlayerBrain.this.getGameMap(), p2.getLobby().getBusStop().getLocation(), p2.getDestination().getBusStop());
+                p2Cost += (SimpleAStar.last_cost * 0.3);
+
+                for (Passenger p : p2.getDestination().getPassengers())
+                {
+                    if (p2.getEnemies().contains(p))
+                    {
+                        p2Cost += 1000;
+                    }
+                }
+
+                if (p1.getPointsDelivered() / p1Cost > p2.getPointsDelivered() / p2Cost) {
+                    return -1;
+                }
+                else if (p1.getPointsDelivered() / p1Cost < p2.getPointsDelivered() / p2Cost) {
+                    return 1;
+                }
+                else {
+                    int p1DestPassSize = p1.getDestination().getPassengers().size();
+                    int p2DestPassSize = p2.getDestination().getPassengers().size();
+
+                    if (p1DestPassSize > p2DestPassSize) {
+                        return -1;
+                    }
+                    else if (p1DestPassSize < p2DestPassSize) {
+                        return 1;
+                    }
+                    else
+                    {
+                        int randomNum = rand.nextInt(2);
+                        return (randomNum == 0) ? -1 : 1;
+                    }
+                }
+            } catch (RuntimeException ex) {
                 int p1DestPassSize = p1.getDestination().getPassengers().size();
                 int p2DestPassSize = p2.getDestination().getPassengers().size();
 

@@ -46,7 +46,7 @@ public class SimpleAStar {
     public static java.util.ArrayList<Point> CalculatePath(Map map, Point start, Point end) {
 
         // should never happen but just to be sure
-        if (start == end) {
+        if (start.equals(end)) {
             return new java.util.ArrayList<Point>(java.util.Arrays.asList(new Point[]{start}));
         }
 
@@ -73,6 +73,10 @@ public class SimpleAStar {
         while(true) {
 
             //otherwise calculate it
+            if (queue.isEmpty()) {
+                int i = 0;
+            }
+
             TrailPoint trail_temp = queue.remove(0);
 
             for (Point ptOffset : offsets) {
@@ -128,8 +132,8 @@ public class SimpleAStar {
         public L getLeft() { return left; }
         public R getRight() { return right; }
 
-        @Override
-        public int hashCode() { return left.hashCode() ^ right.hashCode(); }
+        //@Override
+        //public int hashCode() { return left.hashCode() ^ right.hashCode(); }
 
         @Override
         public boolean equals(Object o) {
@@ -200,7 +204,7 @@ public class SimpleAStar {
         public TrailPoint(Point pt, Point end, int cost) {
             setMapTile(pt);
             setNeighbors(new java.util.ArrayList<TrailPoint>());
-            setDistance(Math.abs(getMapTile().x - end.x) + Math.abs(getMapTile().y - end.y));
+            //setDistance(Math.abs(getMapTile().x - end.x) + Math.abs(getMapTile().y - end.y));
             setCost(cost);
         }
 

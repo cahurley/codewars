@@ -4,8 +4,8 @@
     <list default="true" id="7e120b85-45f6-451d-b420-edad0c068cfe" name="Default" comment="" />
     <ignored path="PlayerJavaAI.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/MyPlayerBrain.java" changelist="7e120b85-45f6-451d-b420-edad0c068cfe" time="1359241202775" ignored="false" />
-    <file path="/SimpleAStar.java" changelist="7e120b85-45f6-451d-b420-edad0c068cfe" time="1359240500538" ignored="false" />
+    <file path="/MyPlayerBrain.java" changelist="7e120b85-45f6-451d-b420-edad0c068cfe" time="1359247056709" ignored="false" />
+    <file path="/SimpleAStar.java" changelist="7e120b85-45f6-451d-b420-edad0c068cfe" time="1359247253698" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +71,22 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java" line="76" class="net.windward.Windwardopolis.AI.SimpleAStar" package="net.windward.Windwardopolis.AI">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -83,41 +99,9 @@
       <file leaf-file-name="MyPlayerBrain.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/MyPlayerBrain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="297" column="13" selection-start="11152" selection-end="11152" vertical-scroll-proportion="0.5429769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Limo.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Limo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="29" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerAIBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/PlayerAIBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleAStar.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="10" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0">
+            <state line="300" column="0" selection-start="11063" selection-end="11063" vertical-scroll-proportion="-0.3409669">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1086#1139#0" expanded="true" />
-                <element signature="e#2129#2148#0" expanded="true" />
-                <element signature="e#2273#2285#0" expanded="true" />
-                <element signature="e#2425#2449#0" expanded="true" />
-                <element signature="e#3696#3703#0" expanded="true" />
+                <element signature="e#6351#6362#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -147,14 +131,16 @@
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Passenger.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/Framework.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/api/MapSquare.java" />
-        <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java" />
         <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/MyPlayerBrain.java" />
+        <option value="$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="800" />
-    <option name="height" value="860" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -452,7 +438,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="800" height="860" extended-state="0" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -461,20 +447,20 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39848197" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39748955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34449095" sideWeight="0.5032175" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32524964" sideWeight="0.49457994" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32357043" sideWeight="0.49457994" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2899729" sideWeight="0.7660485" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13770914" sideWeight="0.60251045" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2899729" sideWeight="0.7660485" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2339515" sideWeight="0.49227798" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13770914" sideWeight="0.60251045" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22873083" sideWeight="0.49227798" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
@@ -609,38 +595,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="26" selection-start="2816" selection-end="2816" vertical-scroll-proportion="-4.485222">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1086#1139#0" expanded="true" />
+            <element signature="e#2134#2153#0" expanded="true" />
+            <element signature="e#2278#2290#0" expanded="true" />
+            <element signature="e#2430#2454#0" expanded="true" />
+            <element signature="e#3778#3785#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/PlayerAIBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="0.0">
+        <state line="6" column="13" selection-start="125" selection-end="125" vertical-scroll-proportion="-0.9630542">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/api/Limo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="29" selection-start="745" selection-end="745" vertical-scroll-proportion="0.0">
+        <state line="34" column="29" selection-start="745" selection-end="745" vertical-scroll-proportion="0.32061067">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/SimpleAStar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="10" selection-start="962" selection-end="962" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1086#1139#0" expanded="true" />
-            <element signature="e#2129#2148#0" expanded="true" />
-            <element signature="e#2273#2285#0" expanded="true" />
-            <element signature="e#2425#2449#0" expanded="true" />
-            <element signature="e#3696#3703#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/windward/Windwardopolis/AI/MyPlayerBrain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="297" column="13" selection-start="11152" selection-end="11152" vertical-scroll-proportion="0.5429769">
-          <folding />
+        <state line="300" column="0" selection-start="11063" selection-end="11063" vertical-scroll-proportion="-0.3409669">
+          <folding>
+            <element signature="e#6351#6362#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
